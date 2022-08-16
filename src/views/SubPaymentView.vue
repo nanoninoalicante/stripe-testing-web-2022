@@ -20,7 +20,7 @@ const submitPayment = async (event) => {
     //`Elements` instance that was used to create the Payment Element
     elements,
     confirmParams: {
-      return_url: "https://stripe-demo-api-dev-v1-eu-tl53xqfleq-ez.a.run.app/?status=completed",
+      return_url: "/?status=completed",
     },
   });
 
