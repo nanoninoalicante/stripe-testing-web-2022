@@ -2,11 +2,13 @@
 import { RouterLink, RouterView } from "vue-router";
 import FullPageLoading from "./components/FullPageLoading.vue";
 import { useGeneralStore } from "./stores/general";
+import AlertsHolder from "./components/AlertsHolder.vue";
 const general = useGeneralStore();
 </script>
 
 <template>
   <FullPageLoading v-if="general.loading"></FullPageLoading>
+  <AlertsHolder></AlertsHolder>
   <header class="w-full bg-gray-50 py-4">
     <div class="container w-full flex justify-center items-center">
       <nav class="flex space-x-2">

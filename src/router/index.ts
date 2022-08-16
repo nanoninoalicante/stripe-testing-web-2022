@@ -10,12 +10,36 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/payment',
-      name: 'payment',
+      path: '/subscription',
+      name: 'subscription',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/SubscriptionView.vue')
+    },
+    {
+      path: '/standard',
+      name: 'standard',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/StandardPaymentView.vue')
+    },
+    {
+      path: '/standard/payment',
+      name: 'standard-payment',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/PaymentView.vue')
+    },
+    {
+      path: '/subscription/payment',
+      name: 'subscription-payment',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/SubPaymentView.vue')
     }
   ]
 })

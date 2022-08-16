@@ -8,8 +8,7 @@ const general = useGeneralStore();
 const stripe = Stripe(
   "pk_test_51J18RHDDF4yhC66hWTwc5VDTXvaFb6rDsZre0vI8JlX49yHahnkKwmRgvONk8OD7BlpJzuewwTL7ww8581FB7G3Y00TZ2X7ezB"
 );
-// The items the customer wants to buy
-const items = [{ id: "xl-tshirt" }];
+const priceId = "price_1JZB3NDDF4yhC66hQwahuram";
 
 let elements;
 
@@ -21,7 +20,7 @@ const submitPayment = async (event) => {
     //`Elements` instance that was used to create the Payment Element
     elements,
     confirmParams: {
-      return_url: "https://stripe-demo-api-dev-v1-eu-tl53xqfleq-ez.a.run.app/?status=completed",
+      return_url: "http://127.0.0.1:5174/?status=completed",
     },
   });
 
@@ -42,10 +41,10 @@ const submitPayment = async (event) => {
 
 async function initialize() {
   general.loading = true;
-  const response = await fetch("http://127.0.0.1:4242/create-payment-intent", {
+  const response = await fetch("https://stripe-demo-api-dev-v1-eu-tl53xqfleq-ez.a.run.app/create-subscription", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ items, customer: paymentsStore.customerId }),
+    body: JSON.stringify({ priceId, customerId: paymentsStore.customerId }),
   });
   const { clientSecret } = await response.json();
 
