@@ -10,7 +10,7 @@ const deleteAlert = () => {
     <div
       v-for="alert in alertsStore.alerts"
       :key="alert.message"
-      class="flex w-full bg-green-200 p-4 rounded-2xl"
+      class="flex w-full bg-green-200 p-4 rounded-2xl my-2"
     >
       <div class="flex w-full justify-between items-center">
         {{ alert.message }}

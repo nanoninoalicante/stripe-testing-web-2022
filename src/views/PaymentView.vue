@@ -21,7 +21,7 @@ const submitPayment = async (event) => {
     //`Elements` instance that was used to create the Payment Element
     elements,
     confirmParams: {
-      return_url: "https://stripe-demo-api-dev-v1-eu-tl53xqfleq-ez.a.run.app/?status=completed",
+      return_url: "https://stripe-demo-web-2022.netlify.app/?status=completed",
     },
   });
 
@@ -42,7 +42,7 @@ const submitPayment = async (event) => {
 
 async function initialize() {
   general.loading = true;
-  const response = await fetch("http://127.0.0.1:4242/create-payment-intent", {
+  const response = await fetch("https://stripe-demo-api-dev-v1-eu-tl53xqfleq-ez.a.run.app/create-payment-intent", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ items, customer: paymentsStore.customerId }),
