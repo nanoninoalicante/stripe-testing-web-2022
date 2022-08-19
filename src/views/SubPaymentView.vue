@@ -7,11 +7,12 @@ const general = useGeneralStore();
 const STRIPE_PK = import.meta.env.VITE_STRIPE_PK
 const STRIPE_RETURN_URL = import.meta.env.VITE_STRIPE_RETURN_URL
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
+const SUB_PRICE_ID = import.meta.env.VITE_SUB_PRICE_ID
 
 const stripe = Stripe(
   STRIPE_PK
 );
-const priceId = "price_1JZB3NDDF4yhC66hQwahuram";
+const priceId = SUB_PRICE_ID;
 
 let elements;
 
