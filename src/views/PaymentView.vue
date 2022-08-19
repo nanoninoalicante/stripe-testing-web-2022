@@ -5,9 +5,9 @@ import { usePaymentsStore } from "@/stores/payments";
 const paymentsStore = usePaymentsStore();
 const general = useGeneralStore();
 
-const STRIPE_PK = import.meta.env.STRIPE_PK
-const STRIPE_RETURN_URL = import.meta.env.STRIPE_RETURN_URL
-const API_BASE_URL = import.meta.env.API_BASE_URL
+const STRIPE_PK = import.meta.env.VITE_STRIPE_PK
+const STRIPE_RETURN_URL = import.meta.env.VITE_STRIPE_RETURN_URL
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
 
 const stripe = Stripe(
   STRIPE_PK
