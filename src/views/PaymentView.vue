@@ -5,8 +5,12 @@ import { usePaymentsStore } from "@/stores/payments";
 const paymentsStore = usePaymentsStore();
 const general = useGeneralStore();
 
+const STRIPE_PK = import.meta.env.STRIPE_PK
+const STRIPE_RETURN_URL = import.meta.env.STRIPE_RETURN_URL
+const API_BASE_URL = import.meta.env.API_BASE_URL
+
 const stripe = Stripe(
-  "pk_test_51J18RHDDF4yhC66hWTwc5VDTXvaFb6rDsZre0vI8JlX49yHahnkKwmRgvONk8OD7BlpJzuewwTL7ww8581FB7G3Y00TZ2X7ezB"
+  STRIPE_PK
 );
 // The items the customer wants to buy
 const items = [{ id: "xl-tshirt" }];
@@ -21,7 +25,7 @@ const submitPayment = async (event) => {
     //`Elements` instance that was used to create the Payment Element
     elements,
     confirmParams: {
-      return_url: "https://stripe-demo-web-2022.netlify.app/?status=completed",
+      return_url: `${STRIPE_RETURN_URL}/?status=completed`,
     },
   });
 
@@ -42,7 +46,7 @@ const submitPayment = async (event) => {
 
 async function initialize() {
   general.loading = true;
-  const response = await fetch("https://stripe-demo-api-dev-v1-eu-tl53xqfleq-ez.a.run.app/create-payment-intent", {
+  const response = await fetch(`${API_BASE_URL}/create-payment-intent`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ items, customer: paymentsStore.customerId }),

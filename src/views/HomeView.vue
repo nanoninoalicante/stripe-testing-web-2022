@@ -8,8 +8,13 @@ const route = useRoute();
 const router = useRouter();
 const alertsStore = useAlertsStore();
 let stripeResponse = reactive({ res: null });
+
+const STRIPE_PK = import.meta.env.STRIPE_PK
+const STRIPE_RETURN_URL = import.meta.env.STRIPE_RETURN_URL
+const API_BASE_URL = import.meta.env.API_BASE_URL
+
 const stripe = Stripe(
-  "pk_test_51J18RHDDF4yhC66hWTwc5VDTXvaFb6rDsZre0vI8JlX49yHahnkKwmRgvONk8OD7BlpJzuewwTL7ww8581FB7G3Y00TZ2X7ezB"
+  STRIPE_PK
 );
 const checkPayment = () => {
   console.log("stripe response: ", route.query);
