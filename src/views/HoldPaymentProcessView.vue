@@ -25,7 +25,7 @@ const submitPayment = async (event) => {
     //`Elements` instance that was used to create the Payment Element
     elements,
     confirmParams: {
-      return_url: `${STRIPE_RETURN_URL}/?status=completed`,
+      return_url: `${STRIPE_RETURN_URL}/hold/confirm?status=completed`,
     },
   });
 

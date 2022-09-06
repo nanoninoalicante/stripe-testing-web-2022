@@ -42,6 +42,22 @@ const router = createRouter({
       component: () => import('../views/HoldPaymentProcessView.vue')
     },
     {
+      path: '/hold/confirm',
+      name: 'hold-confirm',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/ConfirmHoldIntentView.vue')
+    },
+    {
+      path: '/hold/confirm/:intent',
+      name: 'hold-confirm-with-intent',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/ConfirmHoldIntentView.vue')
+    },
+    {
       path: '/standard/payment',
       name: 'standard-payment',
       // route level code-splitting
