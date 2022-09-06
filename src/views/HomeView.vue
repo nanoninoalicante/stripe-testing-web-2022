@@ -43,6 +43,8 @@ onMounted(() => {
         Standard Payment</RouterLink>
       <RouterLink to="/subscription" class="p-4 bg-cyan-400 text-gray-700 hover:bg-gray-200 rounded-2xl text-center">
         Subscription</RouterLink>
+      <RouterLink to="/hold" class="p-4 bg-purple-400 text-gray-700 hover:bg-gray-200 rounded-2xl text-center">
+        Hold Payment</RouterLink>
     </div>
     <div v-if="route.query && route.query?.status" class="py-8">res:
       <pre class="text-xs">{{ route.query }}</pre>
