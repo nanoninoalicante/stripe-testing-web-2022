@@ -22,7 +22,7 @@ const confirmHoldPayment = async () => {
   const resBody = await response.json();
   console.log("resBody: ", resBody);
   if (resBody.clientSecret) {
-    window.location.href = "/?redirect_status=succeeded&payment_intent=" + resBody.clientSecret;
+    window.location.href = "/?redirect_status=succeeded&payment_intent_client_secret=" + resBody.clientSecret;
 
   }
 }

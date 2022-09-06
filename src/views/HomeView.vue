@@ -18,7 +18,7 @@ const stripe = Stripe(
 );
 const checkPayment = () => {
   console.log("stripe response: ", route.query);
-  alertsStore.setAlert(`payment succeeded - ${route.query?.payment_intent}`);
+  alertsStore.setAlert(`payment succeeded - ${route.query?.payment_intent || route.query?.payment_intent_client_secret}`);
   stripe
     .retrievePaymentIntent(route.query?.payment_intent_client_secret)
     .then(function (result) {
