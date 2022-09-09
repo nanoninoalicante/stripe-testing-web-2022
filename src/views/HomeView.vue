@@ -18,7 +18,7 @@ const stripe = Stripe(
 );
 const checkPayment = () => {
   console.log("stripe response: ", route.query);
-  alertsStore.setAlert(`payment succeeded - ${route.query?.payment_intent}`);
+  alertsStore.setAlert(`payment succeeded - ${route.query?.payment_intent || route.query?.payment_intent_client_secret}`);
   stripe
     .retrievePaymentIntent(route.query?.payment_intent_client_secret)
     .then(function (result) {
@@ -43,6 +43,10 @@ onMounted(() => {
         Standard Payment</RouterLink>
       <RouterLink to="/subscription" class="p-4 bg-cyan-400 text-gray-700 hover:bg-gray-200 rounded-2xl text-center">
         Subscription</RouterLink>
+      <RouterLink to="/hold" class="p-4 bg-purple-400 text-gray-700 hover:bg-gray-200 rounded-2xl text-center">
+        Hold Payment</RouterLink>
+      <RouterLink to="/charge-customer" class="p-4 bg-blue-400 text-gray-700 hover:bg-gray-200 rounded-2xl text-center">
+        Charge a Customer</RouterLink>
     </div>
     <div v-if="route.query && route.query?.status" class="py-8">res:
       <pre class="text-xs">{{ route.query }}</pre>
