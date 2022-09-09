@@ -13,7 +13,8 @@ const confirmHoldPayment = async () => {
   general.loading = true;
   const response = await fetch(`${API_BASE_URL}/confirm-hold/${paymentsStore.paymentIntent}`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" }
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ amount: paymentsStore.amount }),
   }).catch((e) => {
     console.log('error: ', e.message);
     alerts.setAlert(e.message)
@@ -35,6 +36,8 @@ onMounted(() => {
 <template>
   <main class="w-full px-8 py-4">
     <div class="flex flex-col space-y-8">
+      <input type="text" class="p-4 rounded-xl border-2 border-gray-500" v-model="paymentsStore.amount"
+        placeholder="Amount" />
       <input type="text" class="p-4 rounded-xl border-2 border-gray-500" v-model="paymentsStore.paymentIntent"
         placeholder="Payment Intent ID" />
       <button @click="confirmHoldPayment"
