@@ -14,7 +14,7 @@ const confirmHoldPayment = async () => {
   const response = await fetch(`${API_BASE_URL}/charged-saved-payment-method`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ customer: paymentsStore.customerId })
+    body: JSON.stringify({ customer: paymentsStore.customerId, amount: paymentsStore.amount })
   }).catch((e) => {
     console.log('error: ', e.message);
     alerts.setAlert(e.message)
@@ -32,6 +32,8 @@ const confirmHoldPayment = async () => {
 <template>
   <main class="w-full px-8 py-4">
     <div class="flex flex-col space-y-8">
+      <input type="text" class="p-4 rounded-xl border-2 border-gray-500" v-model="paymentsStore.amount"
+        placeholder="Amount" />
       <input type="text" class="p-4 rounded-xl border-2 border-gray-500" v-model="paymentsStore.customerId"
         placeholder="Customer ID" />
       <button @click="confirmHoldPayment"

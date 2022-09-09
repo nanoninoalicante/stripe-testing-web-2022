@@ -5,7 +5,13 @@ const paymentsStore = usePaymentsStore();
 
 <template>
   <main class="w-full px-8 py-4">
-    <div class="flex flex-col space-y-8">
+    <div class="flex flex-col space-y-8 w-full">
+      <input
+        type="text"
+        class="p-4 rounded-xl border-2 border-gray-500"
+        v-model="paymentsStore.amount"
+        placeholder="Amount"
+      />
       <input
         type="text"
         class="p-4 rounded-xl border-2 border-gray-500"

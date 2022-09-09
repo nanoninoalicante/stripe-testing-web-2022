@@ -50,7 +50,7 @@ async function initialize() {
   const response = await fetch(`${API_BASE_URL}/create-payment-intent-hold`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ items, customer: paymentsStore.customerId }),
+    body: JSON.stringify({ items, customer: paymentsStore.customerId, amount: paymentsStore.amount }),
   });
   const { clientSecret } = await response.json();
 
