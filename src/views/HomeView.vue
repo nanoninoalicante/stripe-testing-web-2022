@@ -47,6 +47,8 @@ onMounted(() => {
         Hold Payment</RouterLink>
       <RouterLink to="/charge-customer" class="p-4 bg-blue-400 text-gray-700 hover:bg-gray-200 rounded-2xl text-center">
         Charge a Customer</RouterLink>
+      <RouterLink to="/connect-onboard" class="p-4 bg-blue-400 text-gray-700 hover:bg-gray-200 rounded-2xl text-center">
+        Onboard a Connect User</RouterLink>
     </div>
     <div v-if="route.query && route.query?.status" class="py-8">res:
       <pre class="text-xs">{{ route.query }}</pre>

@@ -4,11 +4,12 @@ export const usePaymentsStore = defineStore({
   id: "payments",
   state: () => ({
     customerId: "cus_Jt3Q9UHajxeQtJ",
+    connectId: "",
     paymentIntent: "",
     amount: 1000,
   }),
   actions: {
-    setPaymentIntentId(intent) {
+    setPaymentIntentId(intent: any) {
       this.paymentIntent = intent;
     },
   },
