@@ -34,6 +34,14 @@ const router = createRouter({
       component: () => import('../views/ChargeACustomersDefaultPaymentView.vue')
     },
     {
+      path: '/connect-onboard',
+      name: 'connect-onboard',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/ConnectOnboardingView.vue')
+    },
+    {
       path: '/hold',
       name: 'hold',
       // route level code-splitting
