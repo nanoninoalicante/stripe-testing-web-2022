@@ -1,6 +1,7 @@
 <script setup>
 import { usePaymentsStore } from "@/stores/payments";
 const paymentsStore = usePaymentsStore();
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
 
 const generateOnboardingLink = async () => {
   const response = await fetch(`${API_BASE_URL}/connect/${paymentsStore.connectId}/onboarding-link`, {
