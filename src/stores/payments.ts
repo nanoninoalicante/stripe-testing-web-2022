@@ -12,5 +12,8 @@ export const usePaymentsStore = defineStore({
     setPaymentIntentId(intent: any) {
       this.paymentIntent = intent;
     },
+    setPaymentConnectedAccount(connectId: any) {
+      this.connectId = connectId;
+    },
   },
 });

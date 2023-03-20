@@ -12,10 +12,16 @@ const paymentsStore = usePaymentsStore();
         v-model="paymentsStore.customerId"
         placeholder="Customer ID"
       />
+      <input
+        type="text"
+        class="p-4 rounded-xl border-2 border-gray-500"
+        v-model="paymentsStore.connectId"
+        placeholder="Connected Account ID"
+      />
       <RouterLink
         to="/standard/payment"
         class="p-4 bg-gray-200 text-gray-700 hover:bg-gray-50 rounded-2xl text-center"
-        >Standard Payment</RouterLink
+        >Standard Destination Payment</RouterLink
       >
     </div>
   </main>
