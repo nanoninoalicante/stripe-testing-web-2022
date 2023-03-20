@@ -5,13 +5,11 @@ import { usePaymentsStore } from "@/stores/payments";
 const paymentsStore = usePaymentsStore();
 const general = useGeneralStore();
 
-const STRIPE_PK = import.meta.env.VITE_STRIPE_PK
-const STRIPE_RETURN_URL = import.meta.env.VITE_STRIPE_RETURN_URL
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
+const STRIPE_PK = import.meta.env.VITE_STRIPE_PK;
+const STRIPE_RETURN_URL = import.meta.env.VITE_STRIPE_RETURN_URL;
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
-const stripe = Stripe(
-  STRIPE_PK
-);
+const stripe = Stripe(STRIPE_PK);
 // The items the customer wants to buy
 const items = [{ id: "xl-tshirt" }];
 
@@ -49,13 +47,16 @@ async function initialize() {
   const response = await fetch(`${API_BASE_URL}/create-payment-intent`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ items, customer: paymentsStore.customerId }),
+    body: JSON.stringify({
+      items,
+      customer: paymentsStore.customerId,
+      connectAccountId: paymentsStore.connectId,
+    }),
   });
   const { clientSecret } = await response.json();
 
   const appearance = {
     theme: "flat",
-    
   };
   elements = stripe.elements({ appearance, clientSecret });
 
