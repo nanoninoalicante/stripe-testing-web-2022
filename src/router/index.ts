@@ -1,95 +1,112 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import { createRouter, createWebHistory } from "vue-router";
+import HomeView from "../views/HomeView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.VITE_BASE_URL),
   routes: [
     {
-      path: '/',
-      name: 'home',
-      component: HomeView
+      path: "/",
+      name: "home",
+      component: HomeView,
     },
     {
-      path: '/subscription',
-      name: 'subscription',
+      path: "/subscription",
+      name: "subscription",
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/SubscriptionView.vue')
+      component: () => import("../views/SubscriptionView.vue"),
     },
     {
-      path: '/standard',
-      name: 'standard',
+      path: "/standard",
+      name: "standard",
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/StandardPaymentView.vue')
+      component: () => import("../views/StandardPaymentView.vue"),
     },
     {
-      path: '/charge-customer',
-      name: 'charge-customer',
+      path: "/standard/payment",
+      name: "standard-payment",
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/ChargeACustomersDefaultPaymentView.vue')
+      component: () => import("../views/PaymentView.vue"),
     },
     {
-      path: '/connect-onboard',
-      name: 'connect-onboard',
+      path: "/standard-on-behalf-of",
+      name: "standard-on-behalf-of",
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/ConnectOnboardingView.vue')
+      component: () => import("../views/OnBehalfOfConnectedPaymentView.vue"),
     },
     {
-      path: '/hold',
-      name: 'hold',
+      path: "/standard-on-behalf-of/payment",
+      name: "standard-on-behalf-of-payment",
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/HoldPaymentView.vue')
+      component: () => import("../views/OnBehalfOfConnectedPaymentProcess.vue"),
     },
     {
-      path: '/hold/payment',
-      name: 'hold-payment',
+      path: "/charge-customer",
+      name: "charge-customer",
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/HoldPaymentProcessView.vue')
+      component: () =>
+        import("../views/ChargeACustomersDefaultPaymentView.vue"),
     },
     {
-      path: '/hold/confirm',
-      name: 'hold-confirm',
+      path: "/connect-onboard",
+      name: "connect-onboard",
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/ConfirmHoldIntentView.vue')
+      component: () => import("../views/ConnectOnboardingView.vue"),
     },
     {
-      path: '/hold/confirm/:intent',
-      name: 'hold-confirm-with-intent',
+      path: "/hold",
+      name: "hold",
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/ConfirmHoldIntentView.vue')
+      component: () => import("../views/HoldPaymentView.vue"),
     },
     {
-      path: '/standard/payment',
-      name: 'standard-payment',
+      path: "/hold/payment",
+      name: "hold-payment",
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/PaymentView.vue')
+      component: () => import("../views/HoldPaymentProcessView.vue"),
     },
     {
-      path: '/subscription/payment',
-      name: 'subscription-payment',
+      path: "/hold/confirm",
+      name: "hold-confirm",
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/SubPaymentView.vue')
-    }
-  ]
-})
+      component: () => import("../views/ConfirmHoldIntentView.vue"),
+    },
+    {
+      path: "/hold/confirm/:intent",
+      name: "hold-confirm-with-intent",
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import("../views/ConfirmHoldIntentView.vue"),
+    },
+    {
+      path: "/subscription/payment",
+      name: "subscription-payment",
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import("../views/SubPaymentView.vue"),
+    },
+  ],
+});
 
-export default router
+export default router;
