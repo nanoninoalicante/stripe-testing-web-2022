@@ -7,6 +7,8 @@ export const usePaymentsStore = defineStore({
     connectId: "acct_1LjhCT2S6nRDHsZQ",
     paymentIntent: "",
     amount: 1000,
+    email: "christopher@nanonino.com",
+    name: "Chris Hill",
   }),
   actions: {
     setPaymentIntentId(intent: any) {
