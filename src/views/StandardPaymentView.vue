@@ -9,8 +9,20 @@ const paymentsStore = usePaymentsStore();
       <input
         type="text"
         class="p-4 rounded-xl border-2 border-gray-500"
+        v-model="paymentsStore.name"
+        placeholder="Customer Name"
+      />
+      <input
+        type="text"
+        class="p-4 rounded-xl border-2 border-gray-500"
+        v-model="paymentsStore.email"
+        placeholder="Customer Email"
+      />
+      <input
+        type="text"
+        class="p-4 rounded-xl border-2 border-gray-500"
         v-model="paymentsStore.customerId"
-        placeholder="Customer ID"
+        placeholder="Customer Id"
       />
       <input
         type="text"

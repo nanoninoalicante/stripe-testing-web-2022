@@ -51,6 +51,8 @@ async function initialize() {
       items,
       customer: paymentsStore.customerId,
       connectAccountId: paymentsStore.connectId,
+      name: paymentsStore.name || "",
+      email: paymentsStore.email || "",
     }),
   });
   const { clientSecret } = await response.json();
