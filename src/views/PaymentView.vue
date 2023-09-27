@@ -53,6 +53,8 @@ async function initialize() {
       connectAccountId: paymentsStore.connectId,
       name: paymentsStore.name || "",
       email: paymentsStore.email || "",
+      currency: paymentsStore.currency || "",
+      amount: paymentsStore.amount || "",
     }),
   });
   const { clientSecret } = await response.json();
