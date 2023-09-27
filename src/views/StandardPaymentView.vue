@@ -30,6 +30,18 @@ const paymentsStore = usePaymentsStore();
         v-model="paymentsStore.connectId"
         placeholder="Connected Account ID"
       />
+      <input
+        type="text"
+        class="p-4 rounded-xl border-2 border-gray-500"
+        v-model="paymentsStore.currency"
+        placeholder="Currency"
+      />
+      <input
+        type="text"
+        class="p-4 rounded-xl border-2 border-gray-500"
+        v-model="paymentsStore.amount"
+        placeholder="Amount"
+      />
       <RouterLink
         to="/standard/payment"
         class="p-4 bg-gray-200 text-gray-700 hover:bg-gray-50 rounded-2xl text-center"
