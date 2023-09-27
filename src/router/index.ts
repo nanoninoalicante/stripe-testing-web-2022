@@ -106,6 +106,14 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: () => import("../views/SubPaymentView.vue"),
     },
+    {
+      path: "/standard-with-client-secret",
+      name: "standard-payment-with-client-secret",
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import("../views/PaymentViewWithClientSecret.vue"),
+    },
   ],
 });
 

@@ -80,6 +80,12 @@ onMounted(() => {
             >
                 Onboard a Connect User</RouterLink
             >
+            <RouterLink
+                to="/standard-with-client-secret"
+                class="p-4 bg-blue-400 text-gray-700 hover:bg-gray-200 rounded-2xl text-center"
+            >
+                Standard Payment with Client Secret</RouterLink
+            >
         </div>
         <div v-if="route.query && route.query?.status" class="py-8">
             res:
