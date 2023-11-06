@@ -33,10 +33,16 @@ const checkPayment = () => {
         });
     // router.push({ path: "/", query: {} });
 };
+const checkSessionPayment = () => {
+    alertsStore.setAlert(`payment succeeded - ${route.query?.session_id}`);
+};
 onMounted(() => {
     console.log("route: ", route.query);
     if (route.query.redirect_status === "succeeded") {
         checkPayment();
+    }
+    if (route.query.success && route.query.session_id) {
+        checkSessionPayment();
     }
 });
 </script>
@@ -44,6 +50,18 @@ onMounted(() => {
 <template>
     <main class="w-full px-8 py-4">
         <div class="w-full flex flex-col space-y-8">
+            <RouterLink
+                to="/subscription-payment-link"
+                class="p-4 bg-lime-400 text-gray-700 hover:bg-gray-200 rounded-2xl text-center"
+            >
+                Subscription Payment Link</RouterLink
+            >
+            <RouterLink
+                to="/one-time-payment-link"
+                class="p-4 bg-lime-400 text-gray-700 hover:bg-gray-200 rounded-2xl text-center"
+            >
+                One-Time Payment Link</RouterLink
+            >
             <RouterLink
                 to="/standard"
                 class="p-4 bg-lime-400 text-gray-700 hover:bg-gray-200 rounded-2xl text-center"
